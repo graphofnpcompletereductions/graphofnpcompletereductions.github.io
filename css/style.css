@@ -60,6 +60,10 @@ a, a:visited {
 .sp { background: #8FD2E9; }
 .misc { background: #E9B98F;  }
 
+#instructions{ color: #B1B1B1; }
+#highlight-source{ color: red; }
+#highlight-target{ color: black; }
+
 footer p {
   text-align: center;
 }

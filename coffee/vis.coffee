@@ -11,6 +11,7 @@ class BubbleChart
         @fill_color = d3.scale.ordinal()
             .domain(["LG", "GT", "ND", "SP", "MISC"])
             .range(["#E8E98F", "#C18FE9", "#E991BF", "#8FD2E9", "#E9B98F"])
+        @instructions = "<p id=\"instructions\">[INSTRUCTIONS] Click on a node to see more information regarding the selected problem. Each entry displays the problem's name, abbreviation, input instance, decision questions, comment (if there are any), and reference. If the problem has a wikipedia page, clicking on the problem name will bring you to the page. Selecting a node will also highlight related problems. The np-hard problem used to show that the selected problem is hard is highlighted in <i id=\"highlight-source\">red</i>. Problems which were shown hard using the selected problem are highlighted in <i id=\"highlight-target\">black</i>.</p>"
 
         # locations the nodes will move towards
         @center = {x: @width/2, y: @height/2}
@@ -45,6 +46,7 @@ class BubbleChart
             node = {
                 id: parseInt(d.id)
                 name: d.name
+                wikilink: d.wikilink
                 abbrev: d.abbrev
                 parent: parseInt(d.reducedfrom)
                 nbours: []
@@ -134,7 +136,9 @@ class BubbleChart
 
         @background.on "click", (d,i) =>
             @deselect(@current.data, @current.i, @current.element)
-            d3.select("#status").html("")
+            d3.select("#status").html(@instructions)
+
+        d3.select("#status").html(@instructions)
         #@node_group.call(d3.zoom()
         #        .scaleExtent([1/2, 4])
         #        .on("zoom", zoomed))
@@ -202,7 +206,11 @@ class BubbleChart
         @current.i = i
         @current.element = element
 
-        content = "<span class=\"name\" id=\"name-value\"><h4>#{data.name} [#{data.abbrev}]</h4></span><br/>"
+        content = "<span class=\"name\" id=\"name-value\"><h4>"
+        if data.wikilink.length > 0
+            content += "<a href=\"#{data.wikilink}\">#{data.name}</a> [#{data.abbrev}]</h4></span><br/>"
+        else
+            content += "#{data.name} [#{data.abbrev}]</h4></span><br/>"
         content +="<span id=\"input-value\"><b>Instance: </b> #{data.input}</span><br/>"
         content +="<span id=\"question-value\"><b>Question: </b> #{data.question}</span><br/>"
         if data.comment.length > 0
