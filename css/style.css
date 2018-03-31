@@ -1,0 +1,65 @@
+a, a:visited {
+  color:#333;
+}
+
+#vis {
+    width: 940px;
+    height: 500px;
+    clear: both;
+}
+
+#status {
+  padding:0 0 20px 20px;
+}
+
+#bubble-background {
+  fill: none;
+  pointer-events: all;
+}
+
+.active {
+  color: #A6BA92
+}
+
+.bubble-label, .legend {
+  font-family: georgia, "times new roman", times, serif;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1em;
+  position: absolute;
+  fill: black;
+  font-size: 1em;
+}
+
+.legend-entry {
+    cursor: default;
+    float: left;
+    margin-right: 1em;
+}
+
+#outer-block {
+    width: 940px;
+    text-align: center;
+}
+
+#inner-block { display: inline-block; }
+
+.key-dot{
+    display: inline-block;
+    height: 10px;
+    margin-right: .5em;
+    width: 10px;
+}
+
+.lg { background: #E8E98F; }
+.gt { background: #C18FE9; }
+.nd { background: #E991BF; }
+.sp { background: #8FD2E9; }
+.misc { background: #E9B98F;  }
+
+footer p {
+  text-align: center;
+}
