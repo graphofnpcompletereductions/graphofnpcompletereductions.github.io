@@ -4,3 +4,5 @@ This is a visualization of some NP-complete problems described by Gary and Johns
 Check it out at: https://graphofnpcompletereductions.github.io/.
 
 The visualization is made possible by the [D3](https://github.com/d3/d3 "D3.js") javascript library. The math displays in the problem descriptors are made possible by [MathJax](https://www.mathjax.org/ "MathJax"). If you would like to make your own simple web-based application with properly typeset mathematics, these libraries come highly recommended.  
+
+If you have any comments or suggestions, please e-mail: graphofnpcompletereductions@gmail.com.
