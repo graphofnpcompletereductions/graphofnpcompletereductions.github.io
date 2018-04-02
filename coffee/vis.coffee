@@ -4,20 +4,29 @@
 class BubbleChart
     constructor: (data) ->
         @data = data
-        @width = 940
-        @height = 500
+        @width = 1140
+        @height = 700
+        @display_width = 830
+        @display_height = 700
 
         # colors associated with each problem type
         @fill_color = d3.scale.ordinal()
-            .domain(["LG", "GT", "ND", "SP", "MISC"])
-            .range(["#E8E98F", "#C18FE9", "#E991BF", "#8FD2E9", "#E9B98F"])
+            .domain(["GT", "SR", "SS", "AN", "GP", "LG", "PO", "MS"])
+            .range(["#C18FE9",
+                    "#8FD2E9",
+                    "#9EE98F",
+                    "#E33F45",
+                    "#473FE3",
+                    "#E8E98F",
+                    "#FF8B00",
+                    "#3FE3B4"])
         @instructions = "<p id=\"instructions\">[INSTRUCTIONS] Click on a node to see more information regarding the selected problem. Each entry displays the problem's name, abbreviation, input instance, decision questions, comment (if there are any), and reference. If the problem has a wikipedia page, clicking on the problem name will bring you to the page. Selecting a node will also highlight related problems. The np-hard problem used to show that the selected problem is hard is highlighted in <i id=\"highlight-source\">red</i>. Problems which were shown hard using the selected problem are highlighted in <i id=\"highlight-target\">black</i>.</p>"
 
         # locations the nodes will move towards
-        @center = {x: @width/2, y: @height/2}
+        @center = {x: @display_width/4, y: @display_height/2}
 
         # used when setting up force and moving around nodes
-        @layout_gravity = 0.1
+        @layout_gravity = 0.2
         @damper = 0.1
 
         # these will be set in create_nodes and create_vis
@@ -80,13 +89,14 @@ class BubbleChart
 
         # use the max degree of node as the max in the scale's domain
         max_amount = d3.max(degree)
-        @radius_scale = d3.scale.linear().domain([0, max_amount]).range([10, 60])
+        @radius_scale = d3.scale.linear().domain([0, max_amount]).range([18, 40])
 
         @nodes.forEach (n) =>
             n.radius = @radius_scale(degree[n.id])
 
     create_edges: () =>
         for node in @nodes
+            console.log(node)
             if node.parent >= 0
                 @edges.push {source: node, target: @nodes[node.parent]}
                 @nodes[node.parent].nbours.push node.id
@@ -161,7 +171,7 @@ class BubbleChart
         @force = d3.layout.force()
           .nodes(@nodes)
           .links(@edges)
-          .linkDistance(100)
+          .linkDistance(20)
           .size([@width, @height])
 
     # Sets up force layout to display
@@ -190,7 +200,7 @@ class BubbleChart
     # Dividing by 2 scales down the charge to be
     # appropriate for the visualization dimensions.
     charge: (d) ->
-        -Math.pow(d.radius, 2.0)
+        -Math.pow(d.radius, 2)*1.5
 
     # Moves all circles towards the @center
     # of the visualization

@@ -1,15 +1,13 @@
-a, a:visited {
-  color:#333;
+a, a:visited { color: #333; }
+
+.container{
+    width: 1140px;
 }
 
 #vis {
-    width: 940px;
-    height: 500px;
-    clear: both;
-}
-
-#status {
-  padding:0 0 20px 20px;
+    display: inline-block;
+    width: 830px;
+    height: 700px;
 }
 
 #bubble-background {
@@ -17,8 +15,11 @@ a, a:visited {
   pointer-events: all;
 }
 
-.active {
-  color: #A6BA92
+#status {
+    vertical-align: top;
+    display: inline-block;
+    width: 306px;
+    height: 700px;
 }
 
 .bubble-label, .legend {
@@ -34,18 +35,18 @@ a, a:visited {
   font-size: 1em;
 }
 
-.legend-entry {
+.legend {
     cursor: default;
-    float: left;
-    margin-right: 1em;
-}
-
-#outer-block {
-    width: 940px;
+    width: 1140px;
+    height: 1em;
     text-align: center;
 }
 
-#inner-block { display: inline-block; }
+.legend-entry {
+    cursor: default;
+    display: inline-block;
+    margin-right: 1em;
+}
 
 .key-dot{
     display: inline-block;
@@ -55,10 +56,13 @@ a, a:visited {
 }
 
 .lg { background: #E8E98F; }
+.ss { background: #9EE98F; }
+.an { background: #E33F45; }
+.po { background: #FF8B00; }
+.sr { background: #8FD2E9; }
 .gt { background: #C18FE9; }
-.nd { background: #E991BF; }
-.sp { background: #8FD2E9; }
-.misc { background: #E9B98F;  }
+.gp { background: #473FE3; }
+.ms { background: #3FE3B4; }
 
 #instructions{ color: #B1B1B1; }
 #highlight-source{ color: red; }
