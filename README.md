@@ -1,4 +1,4 @@
-# graph-of-npc-reductions
+# A Graph of NP-Complete Reductions
 Visualizing the graph of NP-complete reductions.
 
-I promise I will add a short description soon.
+The website is hosted on: https://pragmatictnt.github.io/graph-of-npc-reductions/.
