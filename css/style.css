@@ -6,7 +6,7 @@ a, a:visited { color: #333; }
 
 #vis {
     display: inline-block;
-    width: 830px;
+    width: 810px;
     height: 700px;
 }
 
@@ -18,7 +18,7 @@ a, a:visited { color: #333; }
 #status {
     vertical-align: top;
     display: inline-block;
-    width: 306px;
+    width: 326px;
     height: 700px;
 }
 
