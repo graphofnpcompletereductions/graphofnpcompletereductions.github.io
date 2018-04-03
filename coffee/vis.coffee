@@ -96,7 +96,7 @@ class BubbleChart
 
     create_edges: () =>
         for node in @nodes
-            console.log(node)
+            # console.log(node)
             if node.parent >= 0
                 @edges.push {source: node, target: @nodes[node.parent]}
                 @nodes[node.parent].nbours.push node.id
