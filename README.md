@@ -1,5 +1,5 @@
 # A Graph of NP-Complete Reductions
-This is a visualization of some NP-complete problems described by Gary and Johnson in *Computers and Intractability: a Guild to the Theory of NP-Completeness*. Even though the book is a great resource, we wanted to see what the reductions would look like displayed more naturally as a graph. 
+This is a visualization of some NP-complete problems described by Gary and Johnson in *Computers and Intractability: a Guide to the Theory of NP-Completeness*. Even though the book is a great resource, we wanted to see what the reductions would look like displayed more naturally as a graph. 
 
 Check it out at: https://graphofnpcompletereductions.github.io/.
 
